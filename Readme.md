@@ -284,3 +284,30 @@ Podemos seleccionar diferentes elementos para mostrar su menú de refactorizaci�
 
 ----
 <sub>[(*artículo original*)](https://entornos.abrilcode.com/doku.php?id=apuntes:refactorizacion)</sub>
+
+# Refactorización de la Puntuación de Tenis en Java
+
+## Refactorizaciones realizadas
+### 1. Separación de lógica en métodos:
+- Se crearon métodos para cada escenario de puntuación:
+  - `getDrawScore(int score)`: Maneja los empates.
+  - `getAdvantageOrWin(int score1, int score2)`: Maneja ventajas y victorias.
+  - `getRegularScore(int score1, int score2)`: Maneja puntuaciones estándar.
+  - `getScoreName(int score)`: Traduce valores numéricos a nombres de puntuación.
+
+### 2. Uso de `switch` moderno
+- Se reemplazaron estructuras `switch-case` tradicionales por expresiones `switch`, mejorando la legibilidad y reduciendo código.
+
+### 3. Eliminación de redundancias
+- Se eliminó el bucle `for`, que anteriormente se usaba para construir la puntuación, ya que podía simplificarse con concatenaciones directas.
+- Se evitó la repetición de nombres de puntuación mediante el método `getScoreName(int score)`.
+
+### 4. Uso de expresiones condicionales concisas
+- Se mejoró la comparación de ventajas y victorias con una condición más clara:
+  ```java
+  return (difference >= 2) ? "Win for player1" : "Win for player2";
+
+
+
+
+
